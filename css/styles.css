@@ -263,7 +263,7 @@ code {
 
 .section {
   padding: var(--space-3xl) 0;
-  background-color: #0a0a0a;
+  background-color: transparent;
   color: #FFFFFF;
   position: relative;
   z-index: 1;
@@ -531,7 +531,7 @@ code {
 .hero__background {
   position: absolute;
   inset: 0;
-  background: #0a0a0a;
+  background: transparent;
   z-index: -1;
 }
 
