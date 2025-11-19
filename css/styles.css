@@ -55,9 +55,9 @@
   --text-on-white-secondary: #4A5568;     /* Secondary text on white/light backgrounds */
   --text-on-white-muted: #718096;         /* Muted text on white/light backgrounds */
 
-  --text-on-dark: #FFFFFF;                /* White text for dark backgrounds */
-  --text-on-dark-secondary: #FFFFFF;      /* Secondary text on dark backgrounds */
-  --text-on-dark-muted: #FFFFFF;          /* Muted text on dark backgrounds */
+  --text-on-dark: #00B4D8;                /* Blue text for dark backgrounds */
+  --text-on-dark-secondary: #00B4D8;      /* Secondary text on dark backgrounds */
+  --text-on-dark-muted: #00B4D8;          /* Muted text on dark backgrounds */
 
   --text-on-gradient: #1A202C;            /* Black text for gradient backgrounds */
   --text-on-gradient-secondary: #2D3748;  /* Secondary text on gradient backgrounds */
@@ -151,7 +151,7 @@ body {
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
-  color: #FFFFFF;
+  color: #00B4D8;
   background-color: #0a0a0a;
   overflow-x: hidden;
   position: relative;
@@ -264,7 +264,7 @@ code {
 .section {
   padding: var(--space-3xl) 0;
   background-color: transparent;
-  color: #FFFFFF;
+  color: #00B4D8;
   position: relative;
   z-index: 1;
 }
