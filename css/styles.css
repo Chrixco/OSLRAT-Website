@@ -721,6 +721,121 @@ code {
 
 .hero__title {
   margin-bottom: var(--space-lg);
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Full text that transforms */
+.hero__title-full {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero__title-full.hide {
+  opacity: 0;
+  transform: scale(0.8) translateY(-20px);
+  pointer-events: none;
+}
+
+.hero__title-line {
+  display: block;
+  font-size: var(--font-size-4xl);
+  font-weight: 200;
+  color: #ffffff;
+  line-height: var(--line-height-tight);
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.hero__title-line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.hero__title-line:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* OSLRAT acronym */
+.hero__title-acronym {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #00ffff 0%, #ffd000 50%, #ff6b00 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 60px rgba(0, 255, 255, 0.5);
+  filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.4));
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero__title-acronym.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: gradientShift 3s ease-in-out infinite, glowPulse 2s ease-in-out infinite;
+}
+
+/* Subtitle that appears after acronym */
+.hero__subtitle {
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: var(--space-md);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero__subtitle.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 50px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 208, 0, 0.5));
+  }
 }
 
 .hero__title-main {
@@ -3838,5 +3953,21 @@ code {
 
   .page-header__title {
     font-size: var(--font-size-2xl);
+  }
+
+  .hero__title {
+    min-height: 150px;
+  }
+
+  .hero__title-line {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero__title-acronym {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-xs);
   }
 }

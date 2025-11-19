@@ -1457,6 +1457,55 @@ function initLetterBackground() {
 }
 
 // ============================================================================
+// HERO TITLE ANIMATION
+// ============================================================================
+
+/**
+ * Modern 2025 hero title animation
+ * Transforms full text into OSLRAT acronym with gradient effects
+ */
+function initHeroTitleAnimation() {
+  const titleFull = document.getElementById('titleFull');
+  const titleAcronym = document.getElementById('titleAcronym');
+  const subtitle = document.getElementById('heroSubtitle');
+
+  if (!titleFull || !titleAcronym || !subtitle) return;
+
+  // Check for reduced motion preference
+  if (prefersReducedMotion()) {
+    // Skip animation, show final state
+    titleFull.classList.add('hide');
+    titleAcronym.classList.add('show');
+    subtitle.classList.add('show');
+    return;
+  }
+
+  // Animation sequence
+  const sequence = async () => {
+    // Wait 2.5 seconds after initial text appears
+    await new Promise(resolve => setTimeout(resolve, 2500));
+
+    // Hide full text
+    titleFull.classList.add('hide');
+
+    // Wait for hide transition
+    await new Promise(resolve => setTimeout(resolve, 600));
+
+    // Show acronym
+    titleAcronym.classList.add('show');
+
+    // Wait for acronym to scale up
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    // Show subtitle
+    subtitle.classList.add('show');
+  };
+
+  // Start the animation sequence
+  sequence();
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -1495,6 +1544,9 @@ function init() {
   initLazyLoading();
   initExternalLinks();
   initPrintOptimization();
+
+  // Hero animation
+  initHeroTitleAnimation();
 
   // Development/monitoring
   initErrorHandling();
