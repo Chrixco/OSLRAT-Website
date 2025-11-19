@@ -748,12 +748,13 @@ code {
 .hero__title-line {
   display: block;
   font-size: var(--font-size-4xl);
-  font-weight: 200;
+  font-weight: 300;
   color: #ffffff;
   line-height: var(--line-height-tight);
-  text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 2px 20px rgba(0, 180, 216, 0.15);
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
+  letter-spacing: 0.02em;
 }
 
 .hero__title-line:nth-child(1) {
@@ -771,32 +772,47 @@ code {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.5);
   font-size: clamp(4rem, 12vw, 8rem);
-  font-weight: 700;
-  background: linear-gradient(135deg, #00ffff 0%, #ffd000 50%, #ff6b00 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 600;
+  color: #ffffff;
   opacity: 0;
-  letter-spacing: 0.1em;
-  text-shadow: 0 0 60px rgba(0, 255, 255, 0.5);
-  filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.4));
+  letter-spacing: 0.15em;
   transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.hero__title-acronym::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 8px;
+  padding: 3px;
+  background: linear-gradient(90deg, #ff6b00, #ffd000, #00ffff, #ffd000, #ff6b00);
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 .hero__title-acronym.show {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  animation: gradientShift 3s ease-in-out infinite, glowPulse 2s ease-in-out infinite;
+}
+
+.hero__title-acronym.show::before {
+  opacity: 1;
+  animation: gradientFlow 3s ease-in-out infinite;
 }
 
 /* Subtitle that appears after acronym */
 .hero__subtitle {
-  font-size: var(--font-size-base);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
   margin-top: var(--space-md);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(10px);
@@ -820,23 +836,7 @@ code {
   }
 }
 
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.4));
-  }
-  50% {
-    filter: drop-shadow(0 0 50px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 208, 0, 0.5));
-  }
-}
+/* Removed flashy animations for more elegant look */
 
 .hero__title-main {
   display: block;
@@ -3218,11 +3218,14 @@ code {
 .interactive-chart {
   position: relative;
   height: 700px;
+  width: 700px;
+  max-width: 100%;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid rgba(0, 255, 255, 0.1);
   border-radius: var(--radius-xl);
   overflow: hidden;
   cursor: crosshair;
+  aspect-ratio: 1 / 1;
 }
 
 .chart-x-axis {
@@ -3486,6 +3489,7 @@ code {
 
   .interactive-chart {
     height: 500px;
+    width: 500px;
   }
 
   .axis-ticks-col {
@@ -3577,6 +3581,7 @@ code {
 
   .interactive-chart {
     height: 400px;
+    width: 400px;
   }
 
   .chart-info-panel {
@@ -3652,6 +3657,7 @@ code {
 
   .interactive-chart {
     height: 300px;
+    width: 300px;
   }
 
   .axis-ticks-col {
