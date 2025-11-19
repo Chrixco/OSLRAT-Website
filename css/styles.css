@@ -56,8 +56,8 @@
   --text-on-white-muted: #718096;         /* Muted text on white/light backgrounds */
 
   --text-on-dark: #FFFFFF;                /* White text for dark backgrounds */
-  --text-on-dark-secondary: #FFFFFF;   /* Secondary text on dark backgrounds */
-  --text-on-dark-muted: rgba(255, 255, 255, 0.6);      /* Muted text on dark backgrounds */
+  --text-on-dark-secondary: #FFFFFF;      /* Secondary text on dark backgrounds */
+  --text-on-dark-muted: #FFFFFF;          /* Muted text on dark backgrounds */
 
   --text-on-gradient: #1A202C;            /* Black text for gradient backgrounds */
   --text-on-gradient-secondary: #2D3748;  /* Secondary text on gradient backgrounds */
@@ -151,7 +151,7 @@ body {
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
   background-color: #0a0a0a;
   overflow-x: hidden;
 }
@@ -238,7 +238,7 @@ code {
 .section {
   padding: var(--space-3xl) 0;
   background-color: #0a0a0a;
-  color: rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
 }
 
 .section--dark {
@@ -288,14 +288,14 @@ code {
 .section__subtitle {
   font-size: var(--font-size-lg);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.6);
+  color: #FFFFFF;
   line-height: var(--line-height-relaxed);
   margin-bottom: 0;
 }
 
 .section--dark .section__subtitle,
 .section--accent .section__subtitle {
-  color: rgba(255, 255, 255, 0.7);
+  color: #FFFFFF;
 }
 
 /* ============================================================================
@@ -356,7 +356,7 @@ code {
 .nav__logo-text {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+  color: #000000;
   line-height: 1;
 }
 
@@ -427,7 +427,7 @@ code {
 }
 
 .nav__link--cta {
-  background-color: var(--color-primary);
+  background-color: #000000;
   color: var(--color-white);
   padding: 0.5rem 1.25rem;
   border-radius: var(--radius-full);
@@ -439,7 +439,7 @@ code {
 }
 
 .nav__link--cta:hover {
-  background-color: var(--color-primary-dark);
+  background-color: #333333;
   color: var(--color-white);
   transform: translateY(-2px);
 }
@@ -550,7 +550,7 @@ code {
 .hero__description {
   font-size: var(--font-size-lg);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
+  color: #FFFFFF;
   max-width: 700px;
   margin: 0 auto var(--space-xl);
   line-height: var(--line-height-relaxed);
@@ -707,7 +707,7 @@ code {
 
 .btn--secondary {
   background-color: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
   border: 1px solid rgba(0, 255, 255, 0.3);
 }
 
@@ -1253,14 +1253,14 @@ code {
 }
 
 .principle__icon {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   flex-shrink: 0;
-}
-
-.principle__icon img {
-  width: 2.5rem;
-  height: 2.5rem;
-  object-fit: contain;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
 }
 
 .principle__title {
@@ -2035,7 +2035,7 @@ code {
 }
 
 .collab-content__description {
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
   margin-bottom: var(--space-md);
 }
 
@@ -2046,18 +2046,18 @@ code {
 }
 
 .collab-content__list li {
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
   margin-bottom: var(--space-sm);
 }
 
 .collab-partners__title {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-md);
-  color: var(--color-white);
+  color: #FFFFFF;
 }
 
 .collab-partners__text {
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
   margin-bottom: var(--space-lg);
 }
 
@@ -2074,7 +2074,7 @@ code {
   border-radius: var(--radius-md);
   text-align: center;
   font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
 }
 
 @media (max-width: 768px) {
@@ -2139,7 +2139,7 @@ code {
 }
 
 .newsletter__description {
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFFFFF;
   margin: 0;
 }
 
@@ -2428,7 +2428,7 @@ code {
 
 .city-country {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -2444,7 +2444,7 @@ code {
 .city-description {
   font-size: 0.9rem;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
   line-height: 1.6;
 }
 
@@ -2456,7 +2456,7 @@ code {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
   opacity: 0;
   transition: opacity 0.6s ease, color 1.5s ease;
 }
@@ -2512,7 +2512,7 @@ code {
 @keyframes labelFadeIn {
   0% {
     opacity: 0;
-    color: rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
   }
   100% {
     opacity: 1;
@@ -2752,7 +2752,7 @@ code {
   pointer-events: none;
 }
 
-/* Danger overlay SVG (red fluid shape) */
+/* Danger overlay SVG (cyan fluid shape) */
 .danger-overlay-svg {
   position: absolute;
   bottom: 0;
@@ -2760,8 +2760,8 @@ code {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  filter: drop-shadow(0 0 20px var(--color-neon-red-glow))
-          drop-shadow(0 -2px 15px rgba(255, 0, 85, 0.4));
+  filter: drop-shadow(0 0 20px var(--color-neon-cyan-glow))
+          drop-shadow(0 -2px 15px rgba(0, 255, 255, 0.4));
   will-change: filter;
 }
 
@@ -2844,10 +2844,10 @@ code {
   height: 160px;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 0, 85, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.5);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
-  box-shadow: 0 0 30px var(--color-neon-red-glow);
+  box-shadow: 0 0 30px var(--color-neon-cyan-glow);
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -2866,9 +2866,9 @@ code {
 .info-panel-year {
   font-size: 3rem;
   font-weight: 100;
-  color: var(--color-neon-red);
+  color: var(--color-neon-cyan);
   line-height: 1;
-  text-shadow: 0 0 20px var(--color-neon-red-glow);
+  text-shadow: 0 0 20px var(--color-neon-cyan-glow);
   min-height: 3rem;
   font-variant-numeric: tabular-nums;
 }
@@ -2934,8 +2934,8 @@ code {
   width: 40px;
   height: 20px;
   border-radius: 4px;
-  box-shadow: 0 0 15px var(--color-neon-red-glow);
-  border: 1px solid rgba(255, 0, 85, 0.5);
+  box-shadow: 0 0 15px var(--color-neon-cyan-glow);
+  border: 1px solid rgba(0, 255, 255, 0.5);
 }
 
 .legend-icon {
