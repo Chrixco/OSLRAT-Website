@@ -819,27 +819,29 @@ function initInteractiveSLRChart() {
       peopleDisplay: people === 0 ? '0' : `${people}M`,
       impact: nearestData.impact,
       percentage: percentage * 100,
-      slrPercentage: (slr / 1.10) * 100,
+      slrPercentage: (slr / 1.2) * 100, // Scale to Y-axis max of 1.2m
       peoplePercentage: (people / 280) * 100
     };
   }
 
   // Create organic SVG path based on cursor position
   function createOrganicPath(xPercent, slrPercent, peoplePercent) {
-    // Create a smooth curve that widens based on people affected
+    // Create a smooth curve that grows in height as we move right
     const points = [];
     const numPoints = 20;
 
     for (let i = 0; i <= numPoints; i++) {
-      const x = (i / numPoints) * xPercent;
-      const progress = i / numPoints;
+      const progress = i / numPoints; // 0 to 1
+      const x = progress * xPercent; // X position from 0 to cursor position
 
-      // Calculate height at this x position
-      const currentSlr = (progress / (xPercent / 100)) * slrPercent;
-      const currentPeople = (progress / (xPercent / 100)) * peoplePercent;
+      // Height grows linearly from 0 to target SLR at cursor position
+      // At progress=0 (start), height=0
+      // At progress=1 (cursor position), height=slrPercent
+      const currentSlr = progress * slrPercent;
+      const currentPeople = progress * peoplePercent;
 
       // Y position (inverted because SVG y=0 is top)
-      const y = 100 - Math.min(currentSlr, 100);
+      const y = 100 - currentSlr;
 
       // Width multiplier based on people affected (creates organic spreading)
       const widthMultiplier = 1 + (currentPeople / 200);
@@ -848,29 +850,23 @@ function initInteractiveSLRChart() {
     }
 
     // Build SVG path with smooth curves
-    let pathD = `M 0 100 L 0 100`;
+    let pathD = `M 0 100`;
 
-    if (points.length > 0) {
-      pathD = `M 0 100`;
+    for (let i = 0; i < points.length; i++) {
+      if (i === 0) {
+        pathD += ` L ${points[i].x} ${points[i].y}`;
+      } else {
+        const prevPoint = points[i - 1];
+        const cp1x = prevPoint.x + (points[i].x - prevPoint.x) * 0.5;
+        const cp1y = prevPoint.y;
+        const cp2x = prevPoint.x + (points[i].x - prevPoint.x) * 0.5;
+        const cp2y = points[i].y;
 
-      for (let i = 0; i < points.length; i++) {
-        if (i === 0) {
-          pathD += ` L ${points[i].x} ${points[i].y}`;
-        } else {
-          const prevPoint = points[i - 1];
-          const cp1x = prevPoint.x + (points[i].x - prevPoint.x) * 0.5;
-          const cp1y = prevPoint.y;
-          const cp2x = prevPoint.x + (points[i].x - prevPoint.x) * 0.5;
-          const cp2y = points[i].y;
-
-          pathD += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${points[i].x} ${points[i].y}`;
-        }
+        pathD += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${points[i].x} ${points[i].y}`;
       }
-
-      pathD += ` L ${xPercent} 100 L 0 100 Z`;
-    } else {
-      pathD = `M 0 100 L 0 100 L ${xPercent} 100 Z`;
     }
+
+    pathD += ` L ${xPercent} 100 L 0 100 Z`;
 
     return pathD;
   }
@@ -920,6 +916,81 @@ function initInteractiveSLRChart() {
 }
 
 // ============================================================================
+// DATA CAROUSEL
+// ============================================================================
+
+/**
+ * Initialize carousel for data tables
+ */
+function initDataCarousel() {
+  const track = document.getElementById('cityDataTrack');
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const slides = Array.from(track.children);
+  let currentSlide = 0;
+
+  function updateCarousel() {
+    // Move track
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+
+    // Update active states
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentSlide);
+    });
+
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
+
+  // Event listeners
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => goToSlide(index));
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateCarousel();
+    }, 250);
+  });
+
+  // Initial setup
+  updateCarousel();
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -944,6 +1015,9 @@ function init() {
 
   // Interactive Chart
   initInteractiveSLRChart();
+
+  // Data Carousel
+  initDataCarousel();
 
   // Page-specific functionality
   initDocsNav();

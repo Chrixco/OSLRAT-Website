@@ -143,30 +143,31 @@
 
                             <!-- Base gradient fill -->
                             <div class="chart-base-fill"></div>
-                        </div>
+                            </div>
 
                             <!-- X-axis (Years) -->
                             <div class="chart-x-axis">
                                 <div class="axis-label-x">IPCC AR6 (2021) — RCP 8.5 Scenario</div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="chart-instruction">
-                            <span>↔</span> Move your cursor to explore different sea level rise scenarios
+                    <div class="chart-instruction">
+                        <span>↔</span> Move your cursor to explore different sea level rise scenarios
+                    </div>
+
+                    <!-- Chart Legend -->
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: linear-gradient(to top, #ff0055, rgba(255, 0, 85, 0.3));"></div>
+                            <span class="legend-label">Sea Level Rise (SLR)</span>
                         </div>
-
-                        <!-- Chart Legend -->
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background: linear-gradient(to top, #ff0055, rgba(255, 0, 85, 0.3));"></div>
-                                <span class="legend-label">Sea Level Rise (SLR)</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-icon">📅</div>
-                                <span class="legend-label">Timeline: 2024 → 2100</span>
-                            </div>
+                        <div class="legend-item">
+                            <div class="legend-icon">📅</div>
+                            <span class="legend-label">Timeline: 2024 → 2100</span>
                         </div>
                     </div>
+                </div>
 
                     <!-- Impact Stats -->
                     <div class="impact-stats">
@@ -347,96 +348,62 @@
             </div>
         </section>
 
-        <!-- Critical Cities Section -->
+        <!-- Critical Cities Data Section -->
         <section class="cities section">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title">Critical Delta & Coastal Cities</h2>
+                    <h2 class="section__title">Global Coastal Risk Assessment</h2>
                     <p class="section__subtitle">
-                        Major urban centers facing the greatest risk from sea level rise and coastal flooding by 2100.
+                        Ranking of cities based on projected damages under RCP8.5 scenario by 2100. Data from Abadie et al., 2020.
                     </p>
                 </div>
 
-                <div class="cities-grid">
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.1s;">
-                        <div class="city-header">
-                            <div class="city-name">Shanghai</div>
-                            <div class="city-country">China</div>
+                <!-- Carousel Container -->
+                <div class="data-carousel">
+                    <!-- Carousel Track -->
+                    <div class="carousel-track-container">
+                        <div class="carousel-track" id="cityDataTrack">
+                            <!-- Slide 1: Expected Damages -->
+                            <div class="carousel-slide active">
+                                <div class="carousel-slide-header">
+                                    <h3 class="carousel-slide-title">Expected Damages by City</h3>
+                                    <p class="carousel-slide-subtitle">Ranking based on RCP8.5 scenario in 2100 (billions USD)</p>
+                                </div>
+                                <div class="data-table-container">
+                                    <img src="assets/images/table1-expected-damages.png" alt="Table 1: Ranking of cities according to expected damages under high-end and RCP8.5 sea-level rise scenarios" class="data-table-image">
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Risk Metrics (Expected Shortfall) -->
+                            <div class="carousel-slide">
+                                <div class="carousel-slide-header">
+                                    <h3 class="carousel-slide-title">Risk Assessment (Expected Shortfall)</h3>
+                                    <p class="carousel-slide-subtitle">Cities ranked by ES(95%) under RCP8.5 scenario in 2100 (billions USD)</p>
+                                </div>
+                                <div class="data-table-container">
+                                    <img src="assets/images/table2-risk-assessment.png" alt="Table 2: Ranking of cities according to risk measured as Expected Shortfall ES(95%)" class="data-table-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="city-stat"><span class="counter" data-target="24">0</span>M</div>
-                        <div class="city-description">Yangtze Delta. Population at risk by 2050. Subsidence rate: 2.5cm/year combined with SLR.</div>
                     </div>
 
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.2s;">
-                        <div class="city-header">
-                            <div class="city-name">Dhaka</div>
-                            <div class="city-country">Bangladesh</div>
+                    <!-- Navigation Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-btn-prev" id="prevSlide" aria-label="Previous slide">
+                            <span class="carousel-btn-icon">‹</span>
+                        </button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                            <button class="carousel-indicator" data-slide="1" aria-label="Go to slide 2"></button>
                         </div>
-                        <div class="city-stat"><span class="counter" data-target="19">0</span>M</div>
-                        <div class="city-description">Ganges-Brahmaputra Delta. 17% of land area submerged by 2050. Climate migration hotspot.</div>
+                        <button class="carousel-btn carousel-btn-next" id="nextSlide" aria-label="Next slide">
+                            <span class="carousel-btn-icon">›</span>
+                        </button>
                     </div>
 
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.3s;">
-                        <div class="city-header">
-                            <div class="city-name">Bangkok</div>
-                            <div class="city-country">Thailand</div>
-                        </div>
-                        <div class="city-stat"><span class="counter" data-target="92">0</span>%</div>
-                        <div class="city-description">Chao Phraya Delta. 92% of city area at risk by 2100. Current elevation: 1.5m above sea level.</div>
-                    </div>
-
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.4s;">
-                        <div class="city-header">
-                            <div class="city-name">Ho Chi Minh</div>
-                            <div class="city-country">Vietnam</div>
-                        </div>
-                        <div class="city-stat"><span class="counter" data-target="20">0</span>%</div>
-                        <div class="city-description">Mekong Delta. 20% of metropolitan area flooded by 2100. Critical rice production region.</div>
-                    </div>
-
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.5s;">
-                        <div class="city-header">
-                            <div class="city-name">Jakarta</div>
-                            <div class="city-country">Indonesia</div>
-                        </div>
-                        <div class="city-stat"><span class="counter" data-target="25">0</span>cm</div>
-                        <div class="city-description">North Java Coast. Annual subsidence rate. 95% of North Jakarta below sea level by 2050.</div>
-                    </div>
-
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.6s;">
-                        <div class="city-header">
-                            <div class="city-name">Alexandria</div>
-                            <div class="city-country">Egypt</div>
-                        </div>
-                        <div class="city-stat"><span class="counter" data-target="6">0</span>M</div>
-                        <div class="city-description">Nile Delta. Population threatened. 30% of delta agricultural land submerged by 2100.</div>
-                    </div>
-
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.7s;">
-                        <div class="city-header">
-                            <div class="city-name">Miami</div>
-                            <div class="city-country">USA</div>
-                        </div>
-                        <div class="city-stat">$<span class="counter" data-target="416">0</span>B</div>
-                        <div class="city-description">South Florida Coast. Property value at risk by 2050. High tide flooding now 400% more frequent.</div>
-                    </div>
-
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.8s;">
-                        <div class="city-header">
-                            <div class="city-name">Mumbai</div>
-                            <div class="city-country">India</div>
-                        </div>
-                        <div class="city-stat"><span class="counter" data-target="11">0</span>M</div>
-                        <div class="city-description">Western India Coast. People exposed to coastal flooding annually by 2050. Critical port infrastructure.</div>
-                    </div>
-
-                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.9s;">
-                        <div class="city-header">
-                            <div class="city-name">New York</div>
-                            <div class="city-country">USA</div>
-                        </div>
-                        <div class="city-stat"><span class="counter" data-target="2">0</span>M</div>
-                        <div class="city-description">Hudson River Estuary. People in 100-year flood zones by 2050. Storm surge risk increasing.</div>
+                    <!-- Data Source Citation -->
+                    <div class="data-source-citation">
+                        <p>Source: Based on data from Abadie et al., 2020, p. 7-8</p>
                     </div>
                 </div>
             </div>
