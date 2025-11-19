@@ -354,57 +354,165 @@
                 <div class="section__header">
                     <h2 class="section__title">Global Coastal Risk Assessment</h2>
                     <p class="section__subtitle">
-                        Ranking of cities based on projected damages under RCP8.5 scenario by 2100. Data from Abadie et al., 2020.
+                        Top 15 cities ranked by projected damages under RCP8.5 scenario by 2100. Data from Abadie et al., 2020.
                     </p>
                 </div>
 
-                <!-- Carousel Container -->
-                <div class="data-carousel">
-                    <!-- Carousel Track -->
-                    <div class="carousel-track-container">
-                        <div class="carousel-track" id="cityDataTrack">
-                            <!-- Slide 1: Expected Damages -->
-                            <div class="carousel-slide active">
-                                <div class="carousel-slide-header">
-                                    <h3 class="carousel-slide-title">Expected Damages by City</h3>
-                                    <p class="carousel-slide-subtitle">Ranking based on RCP8.5 scenario in 2100 (billions USD)</p>
-                                </div>
-                                <div class="data-table-container">
-                                    <img src="assets/images/table1-expected-damages.png" alt="Table 1: Ranking of cities according to expected damages under high-end and RCP8.5 sea-level rise scenarios" class="data-table-image">
-                                </div>
-                            </div>
-
-                            <!-- Slide 2: Risk Metrics (Expected Shortfall) -->
-                            <div class="carousel-slide">
-                                <div class="carousel-slide-header">
-                                    <h3 class="carousel-slide-title">Risk Assessment (Expected Shortfall)</h3>
-                                    <p class="carousel-slide-subtitle">Cities ranked by ES(95%) under RCP8.5 scenario in 2100 (billions USD)</p>
-                                </div>
-                                <div class="data-table-container">
-                                    <img src="assets/images/table2-risk-assessment.png" alt="Table 2: Ranking of cities according to risk measured as Expected Shortfall ES(95%)" class="data-table-image">
-                                </div>
-                            </div>
+                <div class="cities-grid">
+                    <!-- Rank 1: Guangzhou Guangdong -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.1s;">
+                        <div class="city-header">
+                            <div class="city-name">Guangzhou Guangdong</div>
+                            <div class="city-country">China</div>
                         </div>
+                        <div class="city-stat">$<span class="counter" data-target="1392">0</span>B</div>
+                        <div class="city-description">Pearl River Delta. Expected damages by 2100 under RCP8.5. Highest global risk from sea-level rise.</div>
                     </div>
 
-                    <!-- Navigation Controls -->
-                    <div class="carousel-controls">
-                        <button class="carousel-btn carousel-btn-prev" id="prevSlide" aria-label="Previous slide">
-                            <span class="carousel-btn-icon">‹</span>
-                        </button>
-                        <div class="carousel-indicators">
-                            <button class="carousel-indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-                            <button class="carousel-indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                    <!-- Rank 2: Mumbai -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.2s;">
+                        <div class="city-header">
+                            <div class="city-name">Mumbai</div>
+                            <div class="city-country">India</div>
                         </div>
-                        <button class="carousel-btn carousel-btn-next" id="nextSlide" aria-label="Next slide">
-                            <span class="carousel-btn-icon">›</span>
-                        </button>
+                        <div class="city-stat">$<span class="counter" data-target="735">0</span>B</div>
+                        <div class="city-description">Western India Coast. Second highest projected damages. Critical port infrastructure and dense population at risk.</div>
                     </div>
 
-                    <!-- Data Source Citation -->
-                    <div class="data-source-citation">
-                        <p>Source: Based on data from Abadie et al., 2020, p. 7-8</p>
+                    <!-- Rank 3: New Orleans -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.3s;">
+                        <div class="city-header">
+                            <div class="city-name">New Orleans</div>
+                            <div class="city-country">USA</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="674">0</span>B</div>
+                        <div class="city-description">Mississippi Delta. Already below sea level. Third most vulnerable globally to coastal flooding.</div>
                     </div>
+
+                    <!-- Rank 4: Guayaquil -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.4s;">
+                        <div class="city-header">
+                            <div class="city-name">Guayaquil</div>
+                            <div class="city-country">Ecuador</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="413">0</span>B</div>
+                        <div class="city-description">Pacific Coast. Ecuador's largest city. Major economic hub facing severe inundation risk by 2100.</div>
+                    </div>
+
+                    <!-- Rank 5: Alexandria -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.5s;">
+                        <div class="city-header">
+                            <div class="city-name">Alexandria</div>
+                            <div class="city-country">Egypt</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="352">0</span>B</div>
+                        <div class="city-description">Nile Delta. Historic Mediterranean port. 30% of delta agricultural land threatened by submersion.</div>
+                    </div>
+
+                    <!-- Rank 6: Shenzhen -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.6s;">
+                        <div class="city-header">
+                            <div class="city-name">Shenzhen</div>
+                            <div class="city-country">China</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="346">0</span>B</div>
+                        <div class="city-description">Pearl River Delta. Major tech hub. Critical manufacturing and trade infrastructure vulnerable to flooding.</div>
+                    </div>
+
+                    <!-- Rank 7: Calcutta -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.7s;">
+                        <div class="city-header">
+                            <div class="city-name">Calcutta</div>
+                            <div class="city-country">India</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="346">0</span>B</div>
+                        <div class="city-description">Ganges Delta. 15 million people at risk. Low elevation and subsidence compound sea-level rise impacts.</div>
+                    </div>
+
+                    <!-- Rank 8: Osaka-Kobe -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.8s;">
+                        <div class="city-header">
+                            <div class="city-name">Osaka-Kobe</div>
+                            <div class="city-country">Japan</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="342">0</span>B</div>
+                        <div class="city-description">Osaka Bay. Major industrial region. Advanced flood defenses but high asset exposure to rising seas.</div>
+                    </div>
+
+                    <!-- Rank 9: Bangkok -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 0.9s;">
+                        <div class="city-header">
+                            <div class="city-name">Bangkok</div>
+                            <div class="city-country">Thailand</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="313">0</span>B</div>
+                        <div class="city-description">Chao Phraya Delta. Rapid subsidence (2-3cm/year) plus SLR. 92% of city area at risk by 2100.</div>
+                    </div>
+
+                    <!-- Rank 10: Tokyo -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 1.0s;">
+                        <div class="city-header">
+                            <div class="city-name">Tokyo</div>
+                            <div class="city-country">Japan</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="270">0</span>B</div>
+                        <div class="city-description">Tokyo Bay. World's largest economy at risk. Extensive flood infrastructure but massive asset exposure.</div>
+                    </div>
+
+                    <!-- Rank 11: Shanghai -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 1.1s;">
+                        <div class="city-header">
+                            <div class="city-name">Shanghai</div>
+                            <div class="city-country">China</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="212">0</span>B</div>
+                        <div class="city-description">Yangtze Delta. 24M people at risk by 2050. Subsidence rate: 2.5cm/year combined with SLR.</div>
+                    </div>
+
+                    <!-- Rank 12: Tianjin -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 1.2s;">
+                        <div class="city-header">
+                            <div class="city-name">Tianjin</div>
+                            <div class="city-country">China</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="220">0</span>B</div>
+                        <div class="city-description">Bohai Gulf. Major port and industrial center. Low-lying coastal plains highly vulnerable to inundation.</div>
+                    </div>
+
+                    <!-- Rank 13: Nagoya -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 1.3s;">
+                        <div class="city-header">
+                            <div class="city-name">Nagoya</div>
+                            <div class="city-country">Japan</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="204">0</span>B</div>
+                        <div class="city-description">Ise Bay. Manufacturing hub including Toyota. Reclaimed land areas particularly vulnerable to flooding.</div>
+                    </div>
+
+                    <!-- Rank 14: Hai Phong -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 1.4s;">
+                        <div class="city-header">
+                            <div class="city-name">Hai Phong</div>
+                            <div class="city-country">Vietnam</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="187">0</span>B</div>
+                        <div class="city-description">Red River Delta. Northern Vietnam's major port. Critical industrial and shipping infrastructure at risk.</div>
+                    </div>
+
+                    <!-- Rank 15: Abidjan -->
+                    <div class="city-item" data-animate="fade-up" style="animation-delay: 1.5s;">
+                        <div class="city-header">
+                            <div class="city-name">Abidjan</div>
+                            <div class="city-country">Côte d'Ivoire</div>
+                        </div>
+                        <div class="city-stat">$<span class="counter" data-target="152">0</span>B</div>
+                        <div class="city-description">West African Coast. Economic capital of Côte d'Ivoire. Rapid urbanization in flood-prone areas.</div>
+                    </div>
+                </div>
+
+                <!-- Data Source Citation -->
+                <div class="data-source-citation">
+                    <p>Source: Based on expected damages data from Abadie et al., 2020, Table 1, p. 7. Damages shown for RCP8.5 scenario in 2100 (billions USD).</p>
                 </div>
             </div>
         </section>

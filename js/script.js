@@ -916,81 +916,6 @@ function initInteractiveSLRChart() {
 }
 
 // ============================================================================
-// DATA CAROUSEL
-// ============================================================================
-
-/**
- * Initialize carousel for data tables
- */
-function initDataCarousel() {
-  const track = document.getElementById('cityDataTrack');
-  const prevBtn = document.getElementById('prevSlide');
-  const nextBtn = document.getElementById('nextSlide');
-  const indicators = document.querySelectorAll('.carousel-indicator');
-
-  if (!track || !prevBtn || !nextBtn) return;
-
-  const slides = Array.from(track.children);
-  let currentSlide = 0;
-
-  function updateCarousel() {
-    // Move track
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-
-    // Update active states
-    slides.forEach((slide, index) => {
-      slide.classList.toggle('active', index === currentSlide);
-    });
-
-    indicators.forEach((indicator, index) => {
-      indicator.classList.toggle('active', index === currentSlide);
-    });
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  function goToSlide(index) {
-    currentSlide = index;
-    updateCarousel();
-  }
-
-  // Event listeners
-  nextBtn.addEventListener('click', nextSlide);
-  prevBtn.addEventListener('click', prevSlide);
-
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => goToSlide(index));
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-  });
-
-  // Handle window resize
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      updateCarousel();
-    }, 250);
-  });
-
-  // Initial setup
-  updateCarousel();
-}
-
-// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -1015,9 +940,6 @@ function init() {
 
   // Interactive Chart
   initInteractiveSLRChart();
-
-  // Data Carousel
-  initDataCarousel();
 
   // Page-specific functionality
   initDocsNav();
