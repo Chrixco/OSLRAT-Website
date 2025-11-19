@@ -2513,8 +2513,8 @@ code {
     background: #0a0a0a;
   }
   100% {
-    background: rgba(255, 107, 53, 0.08);
-    border: 1px solid rgba(255, 107, 53, 0.2);
+    background: rgba(255, 107, 53, 0.25);
+    border: 1px solid rgba(255, 107, 53, 0.4);
   }
 }
 
