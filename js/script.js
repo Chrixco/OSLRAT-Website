@@ -764,9 +764,7 @@ function initInteractiveSLRChart() {
   const infoPanel = document.getElementById('infoPanel');
   const panelYear = document.getElementById('panelYear');
   const panelSLR = document.getElementById('panelSLR');
-  const panelImpact = document.getElementById('panelImpact');
-  const currentSLR = document.getElementById('current-slr');
-  const currentYear = document.getElementById('current-year');
+  const panelCost = document.getElementById('panelCost');
   const dropletsGroup = document.getElementById('dropletsGroup');
   const splashesGroup = document.getElementById('splashesGroup');
 
@@ -1075,12 +1073,8 @@ function initInteractiveSLRChart() {
     // Update info panel
     infoPanel.classList.add('active');
     panelYear.textContent = data.year;
-    panelSLR.textContent = `+${data.slr}m SLR`;
-    panelImpact.textContent = `$${data.cost}T economic loss`;
-
-    // Update header stats
-    if (currentSLR) currentSLR.textContent = `$${data.cost}`;
-    currentYear.textContent = data.year;
+    panelSLR.textContent = `${data.slr}m`;
+    panelCost.textContent = `$${data.cost}T`;
   });
 
   // Handle mouse enter
@@ -1109,11 +1103,8 @@ function initInteractiveSLRChart() {
     // Update info panel
     infoPanel.classList.add('active');
     panelYear.textContent = data.year;
-    panelSLR.textContent = `+${data.slr}m SLR`;
-    panelImpact.textContent = `$${data.cost}T economic loss`;
-
-    if (currentSLR) currentSLR.textContent = `$${data.cost}`;
-    currentYear.textContent = data.year;
+    panelSLR.textContent = `${data.slr}m`;
+    panelCost.textContent = `$${data.cost}T`;
   });
 
   chart.addEventListener('touchend', () => {

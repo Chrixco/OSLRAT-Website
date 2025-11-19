@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="description" content="OSLRAT - Open-Source Sea-Level Rise Assessment Tool for visualizing and assessing coastal climate risks">
     <meta name="keywords" content="sea level rise, climate change, coastal assessment, open source, environmental tool">
     <meta name="author" content="OSLRAT Project">
+
+    <!-- Mobile Web App Capable -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#000000">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
@@ -63,45 +71,40 @@
                     Empowering researchers, policymakers, and communities with accessible,
                     science-based tools to visualize and assess coastal climate risks.
                 </p>
-                <div class="hero__actions">
-                    <a href="documentation.html" class="btn btn--primary">Get Started</a>
-                    <a href="about.html" class="btn btn--secondary">Learn More</a>
-                </div>
             </div>
 
             <!-- Interactive Data Visualization Section -->
             <div class="hero__visualization">
+                <h2 class="viz-section-title">IPCC AR6 — SSP5-8.5 SCENARIO</h2>
+                <div class="viz-header-stats">
+                    <p class="viz-stat-text">Up to 100 billion people affected</p>
+                    <p class="viz-stat-cost">$14T by 2100</p>
+                </div>
                 <div class="viz-section interactive-viz">
-                    <div class="viz-header">
-                        <span class="viz-label">IPCC AR6 — SSP5-8.5 SCENARIO</span>
-                        <div class="viz-stat">
-                            <span class="viz-number" id="current-cost">$14</span>
-                            <span class="viz-unit">trillion at risk by <span id="current-year">2100</span></span>
-                        </div>
+                    <!-- Interactive instruction inside chart -->
+                    <div class="chart-interactive-hint">
+                        👆 ↔ Move your cursor to explore economic impact at different sea level rise projections
                     </div>
 
                     <!-- Interactive Chart Container -->
                     <div class="interactive-chart-container">
-                        <!-- Y-axis (Economic Cost) -->
-                        <div class="chart-y-axis">
-                            <div class="axis-label">Economic Cost ($T)</div>
-                            <div class="axis-ticks">
-                                <div class="axis-tick"><span>$15T</span></div>
-                                <div class="axis-tick"><span>$11T</span></div>
-                                <div class="axis-tick"><span>$7T</span></div>
-                                <div class="axis-tick"><span>$3T</span></div>
-                                <div class="axis-tick"><span>$0</span></div>
-                            </div>
-                        </div>
-
-                        <div class="chart-wrapper">
-                            <div class="interactive-chart" id="interactiveChart">
-                                <!-- Info Panel -->
-                                <div class="chart-info-panel" id="infoPanel">
-                                    <div class="info-panel-year" id="panelYear">2100</div>
-                                    <div class="info-panel-slr" id="panelSLR">+0.84m SLR</div>
-                                    <div class="info-panel-impact" id="panelImpact">$14T economic loss</div>
+                        <div class="chart-main-area">
+                            <!-- Y-axis (Economic Cost) - Two columns -->
+                            <div class="chart-y-axis-container">
+                                <div class="axis-label-col">
+                                    <div class="axis-label">Economic Cost ($T)</div>
                                 </div>
+                                <div class="axis-ticks-col">
+                                    <div class="axis-tick"><span>$15T</span></div>
+                                    <div class="axis-tick"><span>$11T</span></div>
+                                    <div class="axis-tick"><span>$7T</span></div>
+                                    <div class="axis-tick"><span>$3T</span></div>
+                                    <div class="axis-tick"><span>$0</span></div>
+                                </div>
+                            </div>
+
+                            <div class="chart-wrapper">
+                                <div class="interactive-chart" id="interactiveChart">
 
                                 <!-- Red danger overlay with organic shape -->
                                 <svg class="danger-overlay-svg" id="dangerOverlaySVG" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -156,15 +159,31 @@
                             <div class="chart-base-fill"></div>
                             </div>
 
-                            <!-- X-axis (Sea Level Rise) -->
+                            <!-- X-axis (Sea Level Rise) - Two rows -->
                             <div class="chart-x-axis">
+                                <div class="x-axis-values">
+                                    <span class="x-value">0.10</span>
+                                    <span class="x-value">0.20</span>
+                                    <span class="x-value">0.30</span>
+                                    <span class="x-value">0.40</span>
+                                    <span class="x-value">0.50</span>
+                                    <span class="x-value">0.60</span>
+                                    <span class="x-value">0.70</span>
+                                    <span class="x-value">0.80</span>
+                                </div>
                                 <div class="axis-label-x">Sea Level Rise (meters) — IPCC AR6 SSP5-8.5</div>
                             </div>
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="chart-instruction">
-                        <span>↔</span> Move your cursor to explore economic impact at different sea level rise projections
+                        <!-- Info Panel - Outside the chart on the right -->
+                        <div class="chart-info-panel" id="infoPanel">
+                            <div class="info-panel-cost" id="panelCost">$14T</div>
+                            <div class="info-panel-subtitle">Economic Loss</div>
+                            <div class="info-panel-details">
+                                <span id="panelYear">2100</span> | <span id="panelSLR">0.84m</span> SLR
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Chart Legend -->
@@ -174,7 +193,7 @@
                             <span class="legend-label">Economic Cost (Trillions USD)</span>
                         </div>
                         <div class="legend-item">
-                            <div class="legend-icon">📊</div>
+                            <div class="legend-icon"><i class="fas fa-water"></i></div>
                             <span class="legend-label">SLR: 0.10m → 0.84m (2024-2100)</span>
                         </div>
                     </div>
@@ -700,17 +719,17 @@
                     <ul class="footer__links">
                         <li><a href="https://github.com/yourusername/OSLRAT" class="footer__link" target="_blank" rel="noopener">GitHub Repository</a></li>
                         <li><a href="contact.html" class="footer__link">Contact Us</a></li>
-                        <li><a href="#" class="footer__link">API Documentation</a></li>
-                        <li><a href="#" class="footer__link">Contribute</a></li>
+                        <li><a href="documentation.html" class="footer__link">API Documentation</a></li>
+                        <li><a href="https://github.com/Chrixco/OLSRAT_Open-Source-Sea-Level-Rise-Assessment-Tool/blob/main/CONTRIBUTING.md" class="footer__link" target="_blank" rel="noopener">Contribute</a></li>
                     </ul>
                 </div>
 
                 <div class="footer__section">
                     <h4 class="footer__heading">Connect</h4>
                     <ul class="footer__links">
-                        <li><a href="#" class="footer__link">Twitter</a></li>
-                        <li><a href="#" class="footer__link">Research Papers</a></li>
-                        <li><a href="#" class="footer__link">Blog</a></li>
+                        <li><a href="https://twitter.com" class="footer__link" target="_blank" rel="noopener">Twitter</a></li>
+                        <li><a href="https://github.com/Chrixco/OLSRAT_Open-Source-Sea-Level-Rise-Assessment-Tool#citations" class="footer__link" target="_blank" rel="noopener">Research Papers</a></li>
+                        <li><a href="https://github.com/Chrixco/OLSRAT_Open-Source-Sea-Level-Rise-Assessment-Tool/discussions" class="footer__link" target="_blank" rel="noopener">Blog</a></li>
                         <li><a href="contact.html" class="footer__link">Newsletter</a></li>
                     </ul>
                 </div>
