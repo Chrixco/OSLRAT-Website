@@ -56,7 +56,7 @@
   --text-on-white-muted: #718096;         /* Muted text on white/light backgrounds */
 
   --text-on-dark: #FFFFFF;                /* White text for dark backgrounds */
-  --text-on-dark-secondary: rgba(255, 255, 255, 0.85); /* Secondary text on dark backgrounds */
+  --text-on-dark-secondary: #FFFFFF;   /* Secondary text on dark backgrounds */
   --text-on-dark-muted: rgba(255, 255, 255, 0.6);      /* Muted text on dark backgrounds */
 
   --text-on-gradient: #1A202C;            /* Black text for gradient backgrounds */
