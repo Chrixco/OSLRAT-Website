@@ -1272,6 +1272,32 @@ code {
   padding-top: 4rem;
 }
 
+.use-case__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.use-case__link:hover {
+  color: var(--color-neon-cyan);
+  gap: 0.75rem;
+}
+
+.use-case__link i {
+  font-size: 0.85rem;
+  transition: transform var(--transition-fast);
+}
+
+.use-case__link:hover i {
+  transform: translateX(4px);
+}
+
 .use-case__list {
   list-style: none;
   padding: 0;
@@ -3004,6 +3030,12 @@ code {
 
 .timeline-content {
   flex: 1;
+  padding-left: 3rem;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  padding-left: 0;
+  padding-right: 3rem;
 }
 
 .timeline-title {
@@ -3036,11 +3068,17 @@ code {
   .timeline-item {
     flex-direction: column !important;
     gap: 1rem;
+    padding-left: 2rem;
   }
 
   .timeline-year {
     text-align: left !important;
     font-size: 2.5rem;
+  }
+
+  .timeline-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .timeline-line {
@@ -3211,7 +3249,7 @@ code {
 }
 
 .chart-x-axis {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -3221,6 +3259,8 @@ code {
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
+  flex-wrap: nowrap;
+  overflow-x: visible;
 }
 
 .x-value {
@@ -3228,6 +3268,8 @@ code {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.6);
   font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .axis-label-x {
@@ -3237,6 +3279,7 @@ code {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   text-align: center;
+  word-break: break-word;
   text-shadow: 0 0 10px var(--color-neon-cyan-glow);
 }
 
@@ -3586,36 +3629,53 @@ code {
   }
 
   .x-axis-values {
-    padding: 0 0.5rem;
+    padding: 0 0.25rem;
+    gap: 0.25rem;
   }
 
   .x-value {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .axis-label-x {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+    line-height: 1.3;
   }
 
   .marker-label {
-    bottom: -45px;
-  }
-
-  .marker-year {
+    bottom: -50px;
     font-size: 0.7rem;
   }
 
+  .marker-year {
+    font-size: 0.65rem;
+  }
+
   .marker-slr {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .chart-legend {
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
   }
 
   .legend-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .legend-item {
+    gap: 0.5rem;
+  }
+
+  .legend-color {
+    width: 30px;
+    height: 15px;
+    flex-shrink: 0;
   }
 }
 
@@ -3634,16 +3694,21 @@ code {
   }
 
   .chart-interactive-hint {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .interactive-chart {
-    height: 300px;
-    width: 300px;
+    height: 280px;
+    width: 280px;
+  }
+
+  .interactive-chart-container {
+    gap: 0.75rem;
   }
 
   .axis-ticks-col {
-    height: 300px;
+    height: auto;
   }
 
   .info-panel-cost {
@@ -3651,35 +3716,96 @@ code {
   }
 
   .info-panel-subtitle {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 
   .info-panel-details {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+  }
+
+  .x-axis-values {
+    padding: 0;
+    gap: 0.1rem;
   }
 
   .x-value {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 
   .axis-label-x {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    padding: 0.5rem 0.25rem;
+    line-height: 1.2;
   }
 
   .axis-tick span {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+  }
+
+  .marker-label {
+    bottom: -55px;
   }
 
   .marker-year {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 
   .marker-slr {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .chart-legend {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
   }
 
   .legend-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .legend-color {
+    width: 25px;
+    height: 12px;
+  }
+
+  .legend-icon {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 360px) {
+  .interactive-chart {
+    height: 250px;
+    width: 250px;
+  }
+
+  .x-value {
+    font-size: 0.5rem;
+  }
+
+  .axis-label-x {
+    font-size: 0.6rem;
+    padding: 0.5rem 0;
+  }
+
+  .marker-label {
+    display: none;
+  }
+
+  .info-panel-cost {
+    font-size: 1.25rem;
+  }
+
+  .chart-legend {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .legend-label {
+    font-size: 0.65rem;
   }
 }
 
