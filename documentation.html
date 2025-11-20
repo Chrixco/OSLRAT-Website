@@ -59,6 +59,9 @@
                                     <a href="#getting-started" class="docs-nav__link">Getting Started</a>
                                 </li>
                                 <li class="docs-nav__item">
+                                    <a href="#feature-showcase" class="docs-nav__link">OSLRAT in Action</a>
+                                </li>
+                                <li class="docs-nav__item">
                                     <a href="#installation" class="docs-nav__link">Installation</a>
                                 </li>
                                 <li class="docs-nav__item">
@@ -109,6 +112,36 @@
                                 </ul>
                             </div>
                         </article>
+
+                        <!-- Main UI Overview -->
+                        <section class="plugin-overview">
+                            <div class="overview-image">
+                                <img src="assets/images/UI_Plugin.png" alt="OSLRAT Main Interface" class="overview-img">
+                            </div>
+                            <div class="overview-text">
+                                <h2 class="overview-title">OSLRAT QGIS Plugin Interface</h2>
+                                <p class="overview-description">
+                                    OSLRAT provides a comprehensive suite of 19 processing algorithms organized into 5 powerful modules.
+                                    Each module is designed to handle a specific aspect of coastal vulnerability assessment, from data
+                                    preparation through visualization. The intuitive interface allows researchers and planners to conduct
+                                    complete sea-level rise analyses entirely within QGIS.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Hamburg Case Study Loop -->
+                        <section class="hamburg-showcase">
+                            <div class="hamburg-header">
+                                <h2 class="hamburg-title">Case Study: Hamburg, Germany</h2>
+                                <p class="hamburg-subtitle">Progressive zoom demonstration of flood analysis from regional to building-level detail</p>
+                            </div>
+                            <div class="hamburg-carousel">
+                                <img src="assets/images/Hamburg zoom out.png" alt="Hamburg Regional View" class="hamburg-image active">
+                                <img src="assets/images/Hamburg zoom in.png" alt="Hamburg Neighborhood View" class="hamburg-image">
+                                <img src="assets/images/Hamburg zoom in 2.png" alt="Hamburg Street View" class="hamburg-image">
+                                <img src="assets/images/Hamburg zoom in 3.png" alt="Hamburg Building View" class="hamburg-image">
+                            </div>
+                        </section>
 
                         <!-- Installation -->
                         <article id="installation" class="docs-section" data-animate="fade-up">
@@ -203,6 +236,134 @@ git clone https://github.com/christianxcorral/slr_vulnerability_mapper.git
                                     <li><strong>Terrain Analysis (3 algorithms):</strong> Slope, aspect, hillshade</li>
                                     <li><strong>Visualization (4 algorithms):</strong> Heatmaps, area comparison, population impact</li>
                                 </ul>
+                            </div>
+                        </article>
+
+                        <!-- Feature Sections with UI Images -->
+
+                        <!-- Data Preparation -->
+                        <article id="data-preparation" class="feature-section" data-animate="fade-up">
+                            <div class="feature-content">
+                                <div class="feature-text">
+                                    <h2 class="feature-title">📦 Data Preparation</h2>
+                                    <p class="feature-description">
+                                        Prepare and transform your geospatial data for analysis. OSLRAT includes 4 essential data preparation tools:
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li><strong>Fetch DEM (OpenTopography):</strong> Automatically download high-resolution Digital Elevation Models from OpenTopography's global database. Supports 30m and 90m resolution DEMs.</li>
+                                        <li><strong>Fetch OSM Buildings and Streets:</strong> Download OpenStreetMap building footprints and street networks for your area of interest.</li>
+                                        <li><strong>Reproject Vector:</strong> Transform vector layers between coordinate reference systems (CRS) for consistent spatial analysis.</li>
+                                        <li><strong>Vector to Raster / Raster to Vector:</strong> Convert between data formats to match your analysis requirements.</li>
+                                    </ul>
+                                    <div class="feature-usage">
+                                        <h3 class="usage-title">How to Use:</h3>
+                                        <p>Access via <strong>Processing Toolbox → SLR Vulnerability Mapper → Data Preparation</strong>. Start with "Fetch DEM from OpenTopography" to download elevation data for your coastal area.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-image">
+                                    <img src="assets/images/UI_Data preparation.png" alt="Data Preparation Interface" class="feature-img">
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Flood Mapping -->
+                        <article id="flood-mapping" class="feature-section" data-animate="fade-up">
+                            <div class="feature-content feature-content--reverse">
+                                <div class="feature-text">
+                                    <h2 class="feature-title">🌊 Flood Mapping</h2>
+                                    <p class="feature-description">
+                                        Generate comprehensive flood scenarios using multiple methodologies. OSLRAT provides 5 advanced flood mapping algorithms:
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li><strong>DEM Flood Scenario (AR6):</strong> IPCC AR6 sea-level rise scenarios (SSP1-1.9 through SSP5-8.5) with projections from 2020-2150.</li>
+                                        <li><strong>DEM Flood + Return Period (CODEC):</strong> Combine sea-level rise with extreme water levels for compound flooding analysis.</li>
+                                        <li><strong>Inundation Mapping:</strong> Simple bathtub model for quick flood extent visualization.</li>
+                                        <li><strong>Point Flooding:</strong> Analyze flood depth at specific locations for detailed impact assessment.</li>
+                                        <li><strong>Flood Hazards (Fast):</strong> Rapid batch processing for multiple scenarios and time periods.</li>
+                                        <li><strong>IPCC Flood Scenarios:</strong> Standardized scenarios following IPCC methodologies.</li>
+                                    </ul>
+                                    <div class="feature-usage">
+                                        <h3 class="usage-title">How to Use:</h3>
+                                        <p>Select <strong>Flood Exposure → DEM Flood Scenario (AR6 CSV)</strong>. Choose your DEM, area polygons, SSP scenario (e.g., SSP5-8.5), target year (2100), and confidence level (50th percentile for median projection).</p>
+                                    </div>
+                                </div>
+                                <div class="feature-image">
+                                    <img src="assets/images/UI_Flood mapping.png" alt="Flood Mapping Interface" class="feature-img">
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Social Analysis -->
+                        <article id="social-analysis" class="feature-section" data-animate="fade-up">
+                            <div class="feature-content">
+                                <div class="feature-text">
+                                    <h2 class="feature-title">👥 Social Vulnerability Analysis</h2>
+                                    <p class="feature-description">
+                                        Calculate the Social Vulnerability Index (SVI) to identify communities most at risk from sea-level rise impacts.
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li><strong>Social Vulnerability Index:</strong> Multi-dimensional index combining demographic, socioeconomic, and infrastructure vulnerability factors.</li>
+                                        <li><strong>Vulnerability Metrics:</strong> Analyzes population density, age demographics, income levels, housing quality, and access to resources.</li>
+                                        <li><strong>Spatial Distribution:</strong> Maps vulnerability hotspots to prioritize adaptation investments and emergency planning.</li>
+                                        <li><strong>Equity Analysis:</strong> Identifies disadvantaged communities that may lack resources for climate adaptation.</li>
+                                    </ul>
+                                    <div class="feature-usage">
+                                        <h3 class="usage-title">How to Use:</h3>
+                                        <p>Navigate to <strong>Social Analysis → Social Vulnerability Index</strong>. Input your demographic and census data layers, specify vulnerability factors, and generate a composite vulnerability map for your study area.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-image">
+                                    <img src="assets/images/UI_Social anlaysis.png" alt="Social Analysis Interface" class="feature-img">
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Terrain Analysis -->
+                        <article id="terrain-analysis" class="feature-section" data-animate="fade-up">
+                            <div class="feature-content feature-content--reverse">
+                                <div class="feature-text">
+                                    <h2 class="feature-title">⛰️ Terrain Analysis</h2>
+                                    <p class="feature-description">
+                                        Analyze topographic characteristics that influence flood patterns and coastal vulnerability. 3 essential terrain tools:
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li><strong>Slope:</strong> Calculate terrain gradient to identify steep vs. flat areas. Critical for understanding drainage patterns and flood accumulation zones.</li>
+                                        <li><strong>Aspect:</strong> Determine the direction of slope orientation. Useful for understanding coastal exposure and wave impact directions.</li>
+                                        <li><strong>Hillshade:</strong> Generate 3D-like terrain visualization for improved spatial understanding and presentation-quality maps.</li>
+                                    </ul>
+                                    <div class="feature-usage">
+                                        <h3 class="usage-title">How to Use:</h3>
+                                        <p>Access via <strong>Terrain Analysis</strong> menu. Select your DEM layer and choose the terrain metric. Slope analysis is particularly useful for identifying areas where water will pool versus drain naturally.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-image">
+                                    <img src="assets/images/UI_Terrain analysis.png" alt="Terrain Analysis Interface" class="feature-img">
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Data Visualization -->
+                        <article id="data-visualization-tools" class="feature-section" data-animate="fade-up">
+                            <div class="feature-content">
+                                <div class="feature-text">
+                                    <h2 class="feature-title">📊 Data Visualization</h2>
+                                    <p class="feature-description">
+                                        Create interactive dashboards and publication-ready visualizations to communicate flood risk to stakeholders.
+                                    </p>
+                                    <ul class="feature-list">
+                                        <li><strong>Interactive Data Visualization Dashboard:</strong> Build custom dashboards with charts, graphs, and map comparisons for comprehensive risk communication.</li>
+                                        <li><strong>Temporal Comparisons:</strong> Visualize how flood risk evolves across different time periods (2050, 2100, 2150).</li>
+                                        <li><strong>Scenario Comparisons:</strong> Compare different SSP pathways to show the impact of climate mitigation efforts.</li>
+                                        <li><strong>Export Capabilities:</strong> Generate high-resolution graphics for reports, presentations, and publications.</li>
+                                    </ul>
+                                    <div class="feature-usage">
+                                        <h3 class="usage-title">How to Use:</h3>
+                                        <p>Select <strong>Data Visualization → Interactive Data Visualization Dashboard</strong>. Load your flood analysis results and create custom views combining maps, statistics, and charts for stakeholder presentations.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-image">
+                                    <img src="assets/images/UI_data vis 1.png" alt="Data Visualization Interface" class="feature-img">
+                                </div>
                             </div>
                         </article>
 

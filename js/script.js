@@ -1548,3 +1548,131 @@ window.OSLRAT = {
   isInViewport,
   prefersReducedMotion
 };
+
+// ============================================================================
+// ANIMATED FEATURE SHOWCASE
+// ============================================================================
+
+/**
+ * Feature showcase data with titles and descriptions
+ */
+const showcaseFeatures = [
+  {
+    title: "Regional Flood Analysis - Hamburg",
+    description: "Wide-scale visualization of flood-prone areas in Hamburg, Germany. The cyan overlay shows potential inundation zones based on sea-level rise projections and DEM data."
+  },
+  {
+    title: "Detailed Flood Mapping - Zoom Level 1",
+    description: "Zoomed view revealing neighborhood-level detail. Individual buildings and infrastructure elements become visible, allowing precise identification of vulnerable areas."
+  },
+  {
+    title: "Street-Level Analysis - Zoom Level 2",
+    description: "High-resolution view showing individual streets and properties. Perfect for urban planning and creating evacuation routes for specific neighborhoods."
+  },
+  {
+    title: "Building-Level Assessment - Maximum Detail",
+    description: "Maximum zoom level for property-specific analysis. Identify individual buildings at risk, useful for insurance assessments and detailed adaptation planning."
+  },
+  {
+    title: "OSLRAT Main Interface",
+    description: "The main plugin dashboard with 5 analysis tool categories: Data Preparation, Flood Mapping, Social Analysis, Terrain Analysis, and Data Visualization. Click any module to begin your coastal analysis workflow."
+  },
+  {
+    title: "Data Preparation Tools",
+    description: "Prepare your spatial data for analysis: Fetch DEM data from OpenTopography, reproject vector layers, convert between raster and vector formats, and perform geospatial transformations."
+  },
+  {
+    title: "Flood Mapping Algorithms",
+    description: "Generate flood scenarios using multiple methods: DEM Flood Scenarios (ARR), CODEC for extreme datasets, Inundation Mapping, Point Flooding analysis, and IPCC Flood Scenarios for standardized projections."
+  },
+  {
+    title: "Social Vulnerability Analysis",
+    description: "Calculate the Social Vulnerability Index to identify communities most at risk. Combines demographic, economic, and infrastructure data to prioritize adaptation efforts."
+  },
+  {
+    title: "Terrain Analysis Tools",
+    description: "Analyze topographic characteristics: Calculate slope, aspect, and hillshade to understand terrain influence on flood patterns and drainage."
+  },
+  {
+    title: "Interactive Data Visualization",
+    description: "Create interactive visualizations and dashboards to communicate results. Generate charts, maps, and comparison views for stakeholders and decision-makers."
+  }
+];
+
+/**
+ * Initialize feature showcase carousel
+ */
+function initFeatureShowcase() {
+  const images = document.querySelectorAll('.showcase-image');
+  const dots = document.querySelectorAll('.showcase-dot');
+  const titleEl = document.getElementById('featureTitle');
+  const descriptionEl = document.getElementById('featureDescription');
+  
+  if (!images.length || !dots.length) return;
+  
+  let currentIndex = 0;
+  let autoplayInterval;
+  
+  function showFeature(index) {
+    // Update images
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    
+    // Update text content
+    if (titleEl && descriptionEl && showcaseFeatures[index]) {
+      titleEl.textContent = showcaseFeatures[index].title;
+      descriptionEl.textContent = showcaseFeatures[index].description;
+    }
+    
+    currentIndex = index;
+  }
+  
+  function nextFeature() {
+    const nextIndex = (currentIndex + 1) % images.length;
+    showFeature(nextIndex);
+  }
+  
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayInterval = setInterval(nextFeature, 4000); // Change every 4 seconds
+  }
+  
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+    }
+  }
+  
+  // Dot click handlers
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const index = parseInt(dot.getAttribute('data-index'));
+      showFeature(index);
+      stopAutoplay();
+      setTimeout(startAutoplay, 8000); // Resume autoplay after 8 seconds
+    });
+  });
+  
+  // Start autoplay
+  startAutoplay();
+  
+  // Pause on hover
+  const showcaseDisplay = document.querySelector('.showcase-display');
+  if (showcaseDisplay) {
+    showcaseDisplay.addEventListener('mouseenter', stopAutoplay);
+    showcaseDisplay.addEventListener('mouseleave', startAutoplay);
+  }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFeatureShowcase);
+} else {
+  initFeatureShowcase();
+}
