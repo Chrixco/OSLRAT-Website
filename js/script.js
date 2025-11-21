@@ -1676,11 +1676,13 @@ if (document.readyState === 'loading') {
     initFeatureShowcase();
     initHamburgCarousel();
     initDataVisCarousel();
+    initAffectedBuildingsCarousel();
   });
 } else {
   initFeatureShowcase();
   initHamburgCarousel();
   initDataVisCarousel();
+  initAffectedBuildingsCarousel();
 }
 
 // Hamburg Carousel - Auto-rotating image carousel (1.2 second intervals)
@@ -1715,4 +1717,21 @@ function initDataVisCarousel() {
 
   // Change every 1.3 seconds as requested
   setInterval(showNextImage, 1300);
+}
+
+// Affected Buildings Carousel - Auto-rotating image carousel (1.2 second intervals)
+function initAffectedBuildingsCarousel() {
+  const images = document.querySelectorAll('.affected-buildings-image');
+  if (!images.length) return;
+
+  let currentIndex = 0;
+
+  function showNextImage() {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+  }
+
+  // Change every 1.2 seconds as requested
+  setInterval(showNextImage, 1200);
 }

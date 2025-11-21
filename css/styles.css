@@ -4359,6 +4359,30 @@ code {
   z-index: 1;
 }
 
+/* Affected Buildings Carousel */
+.affected-buildings-carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+}
+
+.affected-buildings-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.affected-buildings-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 /* Feature Sections */
 .feature-section {
   margin: 4rem 0;
