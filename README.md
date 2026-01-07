@@ -5,7 +5,7 @@
 
 **Empowering researchers, policymakers, and communities with accessible, science-based tools to visualize and assess coastal climate risks.**
 
-🌐 **Live Site**: [https://chrixco.github.io/OLSRAT_Open-Source-Sea-Level-Rise-Assessment-Tool/](https://chrixco.github.io/OLSRAT_Open-Source-Sea-Level-Rise-Assessment-Tool/)
+🌐 **Live Site**: [https://chrixco.github.io/OSLRAT-Website/](https://chrixco.github.io/OSLRAT-Website/)
 
 ---
 
@@ -17,6 +17,67 @@ OSLRAT is a comprehensive QGIS plugin and web platform designed to make sea-leve
 - **280+ million people** at risk of displacement by 2100
 - **$14 trillion** in global economic impact
 - **1.10m average global sea-level rise** projected by 2100
+
+---
+
+## 📸 Screenshots & Demo
+
+### QGIS Plugin Interface
+![OSLRAT Plugin Interface](assets/images/UI_Plugin.png)
+*The main OSLRAT processing toolbox with 19 algorithms organized into 5 categories*
+
+### Case Study: Hamburg Flood Analysis
+Progressive zoom from regional to building-level flood assessment:
+
+| Regional View | Neighborhood Detail |
+|:-------------:|:-------------------:|
+| ![Hamburg Regional](assets/images/Hamburg%20zoom%20out.png) | ![Hamburg Zoom](assets/images/Hamburg%20zoom%20in.png) |
+
+| Street Level | Building Level |
+|:------------:|:--------------:|
+| ![Hamburg Street](assets/images/Hamburg%20zoom%20in%202.png) | ![Hamburg Building](assets/images/Hamburg%20zoom%20in%203.png) |
+
+### Affected Buildings Analysis
+Building-level impact assessment showing flooded structures:
+
+![Affected Buildings](assets/images/Hamburg%20affected%20buildlings%200.png)
+
+### Module Screenshots
+
+<details>
+<summary><b>Data Preparation Module</b></summary>
+
+![Data Preparation](assets/images/UI_Data%20preparation.png)
+*DEM fetching, vector/raster conversion, and CRS reprojection tools*
+</details>
+
+<details>
+<summary><b>Flood Mapping Module</b></summary>
+
+![Flood Mapping](assets/images/UI_Flood%20mapping.png)
+*IPCC AR6 scenarios, compound flooding, and batch processing*
+</details>
+
+<details>
+<summary><b>Social Vulnerability Analysis</b></summary>
+
+![Social Analysis](assets/images/UI_Social%20anlaysis.png)
+*Social Vulnerability Index (SVI) calculation*
+</details>
+
+<details>
+<summary><b>Terrain Analysis Module</b></summary>
+
+![Terrain Analysis](assets/images/UI_Terrain%20analysis.png)
+*Slope, aspect, and hillshade generation*
+</details>
+
+<details>
+<summary><b>Data Visualization Dashboard</b></summary>
+
+![Data Visualization](assets/images/UI_data%20vis%201.png)
+*Interactive charts and comparison tools*
+</details>
 
 ---
 
